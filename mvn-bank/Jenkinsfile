@@ -4,22 +4,22 @@ pipeline{
       stages{
           stage('Check stage'){
              steps{
-                   withMaven(maven: 'Maven'){
-                       bat 'Maven --version'
+                   withMaven(maven: 'mvn'){
+                       bat 'mvn --version'
                    }
               }         
          }
           stage('Compile stage'){
              steps{
-                   withMaven(maven: 'Maven'){
-                       bat 'Maven -f mvn-bank/pom.xml compile'
+                   withMaven(maven: 'mvn'){
+                       bat 'mvn -f mvn-bank/pom.xml compile'
                    }
               }
          }  
           stage('Test stage'){
             steps{
-                  withMaven(maven: 'Maven') {
-                        bat 'Maven -f mvn-bank/pom.xml install'
+                  withMaven(maven: 'mvn') {
+                        bat 'mvn -f mvn-bank/pom.xml install'
                   }
               }
               
